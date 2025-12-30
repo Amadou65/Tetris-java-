@@ -8,16 +8,29 @@ import java.awt.RenderingHints;
 import javax.swing.JPanel;
 import java.util.ArrayList;
 import java.awt.event.*;
+import java.util.List;
 public class Game extends JPanel{
-    import java.util.List;
+    
     private Racquet racquet;
     private List<Ball> list;
     public Game(){
-        this.racquet = new Racquet(){
-            public void key
-        }
+        this.racquet = new Racquet();
+        addKeyListener(new KeyListener() {
+            
+            public void keyTyped(KeyEvent e){ }
+            
+            public void keyPressed(KeyEvent e){
+                racquet.KeyPressed(e);
+            }
+            
+            public void keyReleased(KeyEvent e){
+                racquet.KeyReleased(e);
+            }
+        });
         list = new ArrayList<>();
-    }
+        }
+        
+    
     public void addBall(Ball b){
         list.add(b);
     }
